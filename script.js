@@ -65,6 +65,7 @@ document.getElementById('restartButton').addEventListener('click', startTest);
 function startTest() {
     finalResults.classList.add('hidden');
     feedback.classList.remove('hidden');
+    userInput.disabled = false; // Enable input
     userInput.value = '';
     userInput.focus();
     startTime = new Date();
@@ -126,6 +127,7 @@ function finishTest() {
 
     feedback.classList.add('hidden');
     finalResults.classList.remove('hidden');
+    userInput.disabled = true; // Disable input after test ends
 }
 
 function displayNextCharacter() {
