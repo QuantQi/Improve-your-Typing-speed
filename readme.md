@@ -2,6 +2,20 @@
 
 This project is a **Typing Speed Test** designed to help users practice typing and improve their typing speed and accuracy. The test provides visual hints for which **hand** and **finger** to use, as well as the **row position** of the key on the keyboard (top row, home row, or bottom row).
 
+
+### How to Run
+
+
+1. **Open the Test**:
+   - Open [Typing Test](https://quantqi.github.io/TestTyping/)
+    in any modern web browser.
+
+2. **Start Typing**:
+   - The test will begin automatically. Follow the hints and type the characters displayed.
+
+
+
+
 ## Features
 
 - **Random Characters**: The test displays random characters, including numbers, special characters, and the "Space" key.
@@ -43,36 +57,4 @@ This project is a **Typing Speed Test** designed to help users practice typing a
 5. **Finish the Test**:
    - The test lasts for 5 minutes. After that time, the test will automatically end and display your final CPM, accuracy, and total time elapsed.
 
-## Getting Started
-
-### Prerequisites
-
-You need the following to run the project:
-
-- A modern web browser (e.g., Chrome, Firefox, Safari).
-- Basic understanding of HTML and JavaScript.
-
-### How to Run
-
-1. **Download the Files**:
-   - Download `index.html` and `script.js` files.
-   
-2. **Open the Test**:
-   - Open `index.html` in any modern web browser.
-
-3. **Start Typing**:
-   - The test will begin automatically. Follow the hints and type the characters displayed.
-
-### File Structure
-
-- `index.html`: The HTML file containing the structure and layout of the typing test.
-- `script.js`: The JavaScript file containing all the logic for the typing test.
-
-## Finger Numbering Convention
-
-- **1**: Thumb (used for spacebar).
-- **2**: Index finger.
-- **3**: Middle finger.
-- **4**: Ring finger.
-- **5**: Pinky finger.
 
