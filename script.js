@@ -40,6 +40,7 @@ let currentCharIndex = 0;
 let startTime, interval;
 let correctCharsTyped = 0;
 let totalCharsTyped = 0;
+let incorrectChars = [];
 
 const textToTypeElement = document.getElementById('character');
 const leftArrow = document.getElementById('leftArrow');
@@ -73,6 +74,8 @@ function startTest() {
     interval = setInterval(updateTime, 100);
     correctCharsTyped = 0;
     totalCharsTyped = 0;
+    incorrectChars = [];
+    updateIncorrectLettersPane();
     displayNextCharacter();
 }
 
@@ -101,7 +104,11 @@ function handleInput(event) {
         userInput.value = '';
         displayNextCharacter();
     } else {
+        // Incorrect character
         userInput.value = '';
+        flashRed();
+        incorrectChars.push(typedChar || '[Space]');
+        updateIncorrectLettersPane();
     }
 
     updateFeedback();
@@ -189,4 +196,16 @@ function getFingerNumber(char) {
         }
     }
     return ""; // If not found
+}
+
+function flashRed() {
+    userInput.classList.add('flash-red');
+    setTimeout(() => {
+        userInput.classList.remove('flash-red');
+    }, 1000); // Flash red for 1 second
+}
+
+function updateIncorrectLettersPane() {
+    const incorrectLettersElement = document.getElementById('incorrectLetters');
+    incorrectLettersElement.innerText = incorrectChars.join(' ');
 }

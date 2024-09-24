@@ -10,36 +10,46 @@
 </head>
 <body>
     <h1>Typing Speed Test</h1>
-    <div id="textToType">
-        <div class="arrow-container">
-            <i class="material-icons arrow" id="leftArrow"></i>
-            <span class="finger" id="leftFinger"></span>
+    <div id="mainContainer">
+        <!-- Incorrect Letters Pane -->
+        <div id="incorrectPane">
+            <h3><i class="material-icons">error</i> Incorrect Letters</h3>
+            <div id="incorrectLetters"></div>
         </div>
-        <i class="material-icons arrow" id="upArrow"></i>
-        <span id="character"></span>
-        <i class="material-icons arrow" id="downArrow"></i>
-        <div class="arrow-container">
-            <i class="material-icons arrow" id="rightArrow"></i>
-            <span class="finger" id="rightFinger"></span>
+
+        <!-- Typing Area -->
+        <div id="typingArea">
+            <div id="textToType">
+                <div class="arrow-container">
+                    <i class="material-icons arrow" id="leftArrow"></i>
+                    <span class="finger" id="leftFinger"></span>
+                </div>
+                <i class="material-icons arrow" id="upArrow"></i>
+                <span id="character"></span>
+                <i class="material-icons arrow" id="downArrow"></i>
+                <div class="arrow-container">
+                    <i class="material-icons arrow" id="rightArrow"></i>
+                    <span class="finger" id="rightFinger"></span>
+                </div>
+            </div>
+            <textarea id="userInput" placeholder="Type here..." maxlength="1"></textarea>
+
+            <!-- Restart Button (Always Displayed) -->
+            <button id="restartButton"><i class="material-icons">refresh</i> Restart</button>
+
+            <div id="feedback" class="feedback">
+                <p><i class="material-icons">timer</i> Time Elapsed: <span id="timeElapsed">0</span> seconds</p>
+                <p><i class="material-icons">speed</i> Characters per minute: <span id="cpm">0</span></p>
+                <p><i class="material-icons">check_circle</i> Accuracy: <span id="accuracy">0</span>%</p>
+            </div>
         </div>
     </div>
-    <textarea id="userInput" placeholder="Start typing here..." maxlength="1"></textarea>
-
-    <div id="feedback" class="feedback">
-        <p><i class="material-icons">timer</i> Time Elapsed: <span id="timeElapsed">0</span> seconds</p>
-        <p><i class="material-icons">speed</i> Characters per minute: <span id="cpm">0</span></p>
-        <p><i class="material-icons">check_circle</i> Accuracy: <span id="accuracy">0</span>%</p>
-    </div>
-
-    <!-- Moved the restart button here to keep it always displayed -->
-    <button id="restartButton"><i class="material-icons">refresh</i> Restart</button>
 
     <div id="finalResults" class="hidden">
         <h2><i class="material-icons">assessment</i> Final Results</h2>
         <p><i class="material-icons">timer</i> Time: <span id="finalTimeElapsed">0</span> seconds</p>
         <p><i class="material-icons">speed</i> Characters per minute: <span id="finalCpm">0</span></p>
         <p><i class="material-icons">check_circle</i> Accuracy: <span id="finalAccuracy">0</span>%</p>
-        <!-- Removed the restart button from here -->
     </div>
 
     <!-- Rules and Finger Conventions -->

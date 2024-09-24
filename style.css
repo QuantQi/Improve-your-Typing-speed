@@ -1,13 +1,43 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
-    text-align: center;
 }
 
 h1 {
     margin-bottom: 20px;
+    text-align: center;
+}
+
+#mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#incorrectPane {
+    width: 200px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#incorrectPane h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+#incorrectLetters {
+    font-size: 24px;
+    color: red;
+    word-wrap: break-word;
+}
+
+#typingArea {
+    flex: 1;
+    text-align: center;
 }
 
 #textToType {
@@ -41,10 +71,21 @@ h1 {
 }
 
 textarea {
-    width: 100%;
+    width: 100px;
     height: 100px;
-    font-size: 16px;
+    font-size: 50px;
+    text-align: center;
     margin-top: 20px;
+    padding: 20px;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.flash-red {
+    background-color: red;
 }
 
 .feedback {
@@ -63,6 +104,7 @@ textarea {
 
 #finalResults {
     margin-top: 20px;
+    text-align: center;
 }
 
 #finalResults i.material-icons {
@@ -112,16 +154,11 @@ textarea {
 button#restartButton {
     font-size: 16px;
     padding: 10px 20px;
-    margin-top: 20px;
+    margin: 20px auto;
+    display: block;
 }
 
 button#restartButton i.material-icons {
     vertical-align: middle;
     margin-right: 5px;
-}
-#restartButton {
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 20px auto;
-    display: block;
 }
