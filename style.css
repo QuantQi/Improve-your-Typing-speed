@@ -132,6 +132,7 @@ h1 {
 #rightPortion {
     width: 50%;
     margin-left: 20px;
+    text-align: right;
 }
 
 #rules {
