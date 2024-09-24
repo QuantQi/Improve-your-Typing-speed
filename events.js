@@ -3,6 +3,11 @@
 // Event Handlers
 
 function handleKeyPress(event) {
+    // Ignore if 'Shift' key is pressed
+    if (event.key === 'Shift') {
+        return;
+    }
+
     if (finalResults.classList.contains('hidden')) {
         const typedChar = event.key;
         totalCharsTyped++;
