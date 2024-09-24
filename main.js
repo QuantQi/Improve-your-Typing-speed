@@ -9,14 +9,13 @@ let incorrectChars = [];
 
 // DOM Elements
 const textToTypeElement = document.getElementById('character');
+const characterBox = document.getElementById('characterBox');
 const leftArrow = document.getElementById('leftArrow');
 const rightArrow = document.getElementById('rightArrow');
 const upArrow = document.getElementById('upArrow');
 const downArrow = document.getElementById('downArrow');
-const leftFinger = document.getElementById('leftFinger');
-const rightFinger = document.getElementById('rightFinger');
+const fingerNumberElement = document.getElementById('fingerNumber');
 const feedback = document.getElementById('feedback');
-const userInputLabel = document.getElementById('userInputLabel');
 const timeElapsedElement = document.getElementById('timeElapsed');
 const cpmElement = document.getElementById('cpm');
 const accuracyElement = document.getElementById('accuracy');
@@ -37,8 +36,7 @@ function startTest() {
     feedback.classList.remove('hidden');
     incorrectChars = [];
     updateIncorrectLettersPane();
-    userInputLabel.innerText = '';
-    userInputLabel.classList.remove('flash-red');
+    characterBox.classList.remove('flash-red');
     startTime = new Date();
     if (interval) clearInterval(interval);
     interval = setInterval(updateTime, 100);
@@ -89,35 +87,26 @@ function displayNextCharacter() {
     const leftHand = isLeftHand(currentChar);
     const fingerNumber = getFingerNumber(currentChar);
 
+    fingerNumberElement.innerText = fingerNumber;
+
+    // Reset all arrows
+    leftArrow.innerText = "";
+    rightArrow.innerText = "";
+    upArrow.innerText = "";
+    downArrow.innerText = "";
+
     if (leftHand) {
         leftArrow.innerText = "arrow_left";
-        rightArrow.innerText = "";
-        leftFinger.innerText = fingerNumber;
-        rightFinger.innerText = "";
     } else if (leftHand === false) {
-        leftArrow.innerText = "";
         rightArrow.innerText = "arrow_right";
-        leftFinger.innerText = "";
-        rightFinger.innerText = fingerNumber;
-    } else {
-        leftArrow.innerText = "";
-        rightArrow.innerText = "";
-        leftFinger.innerText = "";
-        rightFinger.innerText = "";
     }
 
     // Show position arrows (up or down)
     if (topRowKeys.includes(currentChar)) {
         upArrow.innerText = "arrow_upward";
-        downArrow.innerText = "";
     } else if (homeRowKeys.includes(currentChar)) {
-        upArrow.innerText = "";
-        downArrow.innerText = "";
+        // No up/down arrow for home row
     } else if (bottomRowKeys.includes(currentChar)) {
-        upArrow.innerText = "";
         downArrow.innerText = "arrow_downward";
-    } else {
-        upArrow.innerText = "";
-        downArrow.innerText = "";
     }
 }

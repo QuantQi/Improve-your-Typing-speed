@@ -11,16 +11,13 @@ function handleKeyPress(event) {
 
         if (expectedChar === "Space" && typedChar === ' ') {
             correctCharsTyped++;
-            userInputLabel.innerText = '[Space]';
             displayNextCharacter();
         } else if (typedChar === expectedChar) {
             correctCharsTyped++;
-            userInputLabel.innerText = typedChar;
             displayNextCharacter();
         } else {
             // Incorrect character
-            userInputLabel.innerText = typedChar === ' ' ? '[Space]' : typedChar;
-            flashRed(userInputLabel);
+            flashRed(characterBox);
             incorrectChars.push(typedChar === ' ' ? '[Space]' : typedChar);
             updateIncorrectLettersPane();
         }

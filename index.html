@@ -21,19 +21,18 @@
         <div id="typingArea">
             <div id="textToType">
                 <div class="arrow-container">
-                    <i class="material-icons arrow" id="leftArrow"></i>
-                    <span class="finger" id="leftFinger"></span>
-                </div>
-                <i class="material-icons arrow" id="upArrow"></i>
-                <span id="character"></span>
-                <i class="material-icons arrow" id="downArrow"></i>
-                <div class="arrow-container">
-                    <i class="material-icons arrow" id="rightArrow"></i>
-                    <span class="finger" id="rightFinger"></span>
+                    <div class="arrow-group" id="arrowGroup">
+                        <i class="material-icons arrow" id="leftArrow"></i>
+                        <i class="material-icons arrow" id="upArrow"></i>
+                        <i class="material-icons arrow" id="downArrow"></i>
+                        <i class="material-icons arrow" id="rightArrow"></i>
+                        <span class="finger" id="fingerNumber"></span>
+                    </div>
+                    <div id="characterBox">
+                        <span id="character"></span>
+                    </div>
                 </div>
             </div>
-            <!-- Replaced textarea with label -->
-            <label id="userInputLabel"></label>
 
             <!-- Restart Button (Always Displayed) -->
             <button id="restartButton"><i class="material-icons">refresh</i> Restart</button>
@@ -57,7 +56,7 @@
     <section id="rules">
         <h2><i class="material-icons">rule</i> Rules</h2>
         <ul>
-            <li><i class="material-icons">keyboard</i> Type the character displayed on the screen.</li>
+            <li><i class="material-icons">keyboard</i> Type the character displayed in the rectangle.</li>
             <li><i class="material-icons">directions</i> Follow the arrow hints:
                 <ul>
                     <li><i class="material-icons">arrow_left</i> <strong>Left Arrow:</strong> Use your left hand.</li>
@@ -67,7 +66,7 @@
                     <li><i class="material-icons">remove</i> <strong>No up/down arrow:</strong> Key is in the home row.</li>
                 </ul>
             </li>
-            <li><i class="material-icons">touch_app</i> Finger numbers below the arrows indicate which finger to use:
+            <li><i class="material-icons">touch_app</i> Finger numbers indicate which finger to use:
                 <ul>
                     <li><strong>1:</strong> Thumb</li>
                     <li><strong>2:</strong> Index finger</li>

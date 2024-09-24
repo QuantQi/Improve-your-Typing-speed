@@ -43,44 +43,46 @@ h1 {
 #textToType {
     font-size: 50px;
     margin: 20px 0;
-    letter-spacing: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.arrow {
-    font-size: 40px;
-}
-
-.material-icons.arrow {
-    font-size: 40px;
-    vertical-align: middle;
-}
-
-.finger {
-    font-size: 16px;
-    color: grey;
 }
 
 .arrow-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 10px;
 }
 
-/* Style for the label */
-#userInputLabel {
-    display: block;
+.arrow-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.arrow {
+    font-size: 40px;
+}
+
+.finger {
+    font-size: 16px;
+    color: grey;
+    margin-top: 5px;
+}
+
+#characterBox {
+    border: 2px solid #000;
+    padding: 20px;
     width: 100px;
     height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#characterBox span {
     font-size: 50px;
-    text-align: center;
-    margin: 20px auto;
-    padding: 20px;
-    line-height: 60px;
-    border: 1px solid #ccc;
 }
 
 .flash-red {
