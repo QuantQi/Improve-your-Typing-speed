@@ -20,7 +20,12 @@ h1 {
 }
 
 .arrow {
-    font-size: 30px;
+    font-size: 40px;
+}
+
+.material-icons.arrow {
+    font-size: 40px;
+    vertical-align: middle;
 }
 
 .finger {
@@ -47,12 +52,22 @@ textarea {
     font-size: 18px;
 }
 
+.feedback i.material-icons {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
 .hidden {
     display: none;
 }
 
 #finalResults {
     margin-top: 20px;
+}
+
+#finalResults i.material-icons {
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 #rules {
@@ -66,15 +81,41 @@ textarea {
 }
 
 #rules ul {
-    list-style-type: disc;
-    padding-left: 40px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#rules ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+#rules ul li i.material-icons {
+    margin-right: 10px;
 }
 
 #rules ul ul {
-    list-style-type: circle;
-    padding-left: 20px;
+    list-style-type: none;
+    padding-left: 30px;
 }
 
-#rules li {
-    margin-bottom: 10px;
+#rules ul ul li {
+    display: flex;
+    align-items: center;
+}
+
+#rules ul ul li i.material-icons {
+    margin-right: 5px;
+}
+
+button#restartButton {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+button#restartButton i.material-icons {
+    vertical-align: middle;
+    margin-right: 5px;
 }

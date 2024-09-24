@@ -139,35 +139,35 @@ function displayNextCharacter() {
     const fingerNumber = getFingerNumber(currentChar);
 
     if (leftHand) {
-        leftArrow.innerHTML = "←";
-        rightArrow.innerHTML = "";
-        leftFinger.innerHTML = fingerNumber;
-        rightFinger.innerHTML = "";
+        leftArrow.innerText = "arrow_left";
+        rightArrow.innerText = "";
+        leftFinger.innerText = fingerNumber;
+        rightFinger.innerText = "";
     } else if (leftHand === false) {
-        leftArrow.innerHTML = "";
-        rightArrow.innerHTML = "→";
-        leftFinger.innerHTML = "";
-        rightFinger.innerHTML = fingerNumber;
+        leftArrow.innerText = "";
+        rightArrow.innerText = "arrow_right";
+        leftFinger.innerText = "";
+        rightFinger.innerText = fingerNumber;
     } else {
-        leftArrow.innerHTML = "";
-        rightArrow.innerHTML = "";
-        leftFinger.innerHTML = "";
-        rightFinger.innerHTML = "";
+        leftArrow.innerText = "";
+        rightArrow.innerText = "";
+        leftFinger.innerText = "";
+        rightFinger.innerText = "";
     }
 
     // Show position arrows (up or down)
     if (topRowKeys.includes(currentChar)) {
-        upArrow.innerHTML = "↑";
-        downArrow.innerHTML = "";
+        upArrow.innerText = "arrow_upward";
+        downArrow.innerText = "";
     } else if (homeRowKeys.includes(currentChar)) {
-        upArrow.innerHTML = "";
-        downArrow.innerHTML = "";
+        upArrow.innerText = "";
+        downArrow.innerText = "";
     } else if (bottomRowKeys.includes(currentChar)) {
-        upArrow.innerHTML = "";
-        downArrow.innerHTML = "↓";
+        upArrow.innerText = "";
+        downArrow.innerText = "arrow_downward";
     } else {
-        upArrow.innerHTML = "";
-        downArrow.innerHTML = "";
+        upArrow.innerText = "";
+        downArrow.innerText = "";
     }
 }
 
