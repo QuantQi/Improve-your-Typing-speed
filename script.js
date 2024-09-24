@@ -50,7 +50,7 @@ const downArrow = document.getElementById('downArrow');
 const leftFinger = document.getElementById('leftFinger');
 const rightFinger = document.getElementById('rightFinger');
 const feedback = document.getElementById('feedback');
-const userInput = document.getElementById('userInput');
+const userInputLabel = document.getElementById('userInputLabel');
 const timeElapsedElement = document.getElementById('timeElapsed');
 const cpmElement = document.getElementById('cpm');
 const accuracyElement = document.getElementById('accuracy');
@@ -60,22 +60,21 @@ const finalCpm = document.getElementById('finalCpm');
 const finalAccuracy = document.getElementById('finalAccuracy');
 
 window.onload = startTest;
-userInput.addEventListener('input', handleInput);
+document.addEventListener('keydown', handleKeyPress);
 document.getElementById('restartButton').addEventListener('click', startTest);
 
 function startTest() {
     finalResults.classList.add('hidden');
     feedback.classList.remove('hidden');
-    userInput.disabled = false; // Enable input
-    userInput.value = '';
-    userInput.focus();
+    incorrectChars = [];
+    updateIncorrectLettersPane();
+    userInputLabel.innerText = '';
+    userInputLabel.classList.remove('flash-red');
     startTime = new Date();
     if (interval) clearInterval(interval);
     interval = setInterval(updateTime, 100);
     correctCharsTyped = 0;
     totalCharsTyped = 0;
-    incorrectChars = [];
-    updateIncorrectLettersPane();
     displayNextCharacter();
 }
 
@@ -89,29 +88,31 @@ function updateTime() {
     }
 }
 
-function handleInput(event) {
-    const typedChar = userInput.value.trim();
-    totalCharsTyped++;
+function handleKeyPress(event) {
+    if (finalResults.classList.contains('hidden')) {
+        const typedChar = event.key;
+        totalCharsTyped++;
 
-    const expectedChar = characters[currentCharIndex];
+        const expectedChar = characters[currentCharIndex];
 
-    if (expectedChar === "Space" && (event.inputType === "insertText" || typedChar === ' ')) {
-        correctCharsTyped++;
-        userInput.value = '';
-        displayNextCharacter();
-    } else if (typedChar === expectedChar) {
-        correctCharsTyped++;
-        userInput.value = '';
-        displayNextCharacter();
-    } else {
-        // Incorrect character
-        userInput.value = '';
-        flashRed();
-        incorrectChars.push(typedChar || '[Space]');
-        updateIncorrectLettersPane();
+        if (expectedChar === "Space" && typedChar === ' ') {
+            correctCharsTyped++;
+            userInputLabel.innerText = '[Space]';
+            displayNextCharacter();
+        } else if (typedChar === expectedChar) {
+            correctCharsTyped++;
+            userInputLabel.innerText = typedChar;
+            displayNextCharacter();
+        } else {
+            // Incorrect character
+            userInputLabel.innerText = typedChar === ' ' ? '[Space]' : typedChar;
+            flashRed();
+            incorrectChars.push(typedChar === ' ' ? '[Space]' : typedChar);
+            updateIncorrectLettersPane();
+        }
+
+        updateFeedback();
     }
-
-    updateFeedback();
 }
 
 function updateFeedback() {
@@ -134,7 +135,6 @@ function finishTest() {
 
     feedback.classList.add('hidden');
     finalResults.classList.remove('hidden');
-    userInput.disabled = true; // Disable input after test ends
 }
 
 function displayNextCharacter() {
@@ -199,9 +199,9 @@ function getFingerNumber(char) {
 }
 
 function flashRed() {
-    userInput.classList.add('flash-red');
+    userInputLabel.classList.add('flash-red');
     setTimeout(() => {
-        userInput.classList.remove('flash-red');
+        userInputLabel.classList.remove('flash-red');
     }, 1000); // Flash red for 1 second
 }
 
