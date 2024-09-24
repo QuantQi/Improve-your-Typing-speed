@@ -1,7 +1,8 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1400px; /* Increased to accommodate two equal halves */
     margin: auto;
 }
 
@@ -13,13 +14,13 @@ h1 {
 #mainContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
 }
 
-/* Left Half Styles */
-#leftHalf {
-    width: 48%;
+/* Left Half: Typing Test */
+#leftPortion {
+    width: 50%; /* Equal half */
     display: flex;
     flex-direction: column;
 }
@@ -28,6 +29,8 @@ h1 {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 20px;
+    height: 150px; /* Fixed height for consistency */
+    overflow-y: auto; /* Scroll if content overflows */
 }
 
 #incorrectPane h3 {
@@ -39,6 +42,7 @@ h1 {
     font-size: 24px;
     color: red;
     word-wrap: break-word;
+    min-height: 50px; /* Ensure some space even when empty */
 }
 
 #typingArea {
@@ -84,6 +88,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect size */
 }
 
 #characterBox span {
@@ -92,6 +97,7 @@ h1 {
 
 .flash-red {
     background-color: red;
+    transition: background-color 0.3s ease;
 }
 
 .feedback {
@@ -118,10 +124,18 @@ h1 {
     margin-right: 5px;
 }
 
-/* Right Half Styles */
-#rightHalf {
-    width: 48%;
-    margin-left: 20px;
+/* Divider */
+#divider {
+    width: 2px;
+    background-color: #ccc;
+    height: auto;
+    margin: 0 20px;
+}
+
+/* Right Half: Rules */
+#rightPortion {
+    width: 50%; /* Equal half */
+    margin-left: 20px; /* Space from divider */
 }
 
 #rules {
@@ -167,6 +181,7 @@ button#restartButton {
     padding: 10px 20px;
     margin: 20px auto;
     display: block;
+    cursor: pointer;
 }
 
 button#restartButton i.material-icons {
