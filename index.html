@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Typing Speed Test</title>
-    <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="style.css">
-    <!-- Include Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <h1>Typing Speed Test</h1>
     <div id="mainContainer">
-        <!-- Left Half: Typing Test -->
         <div id="leftPortion">
-            <!-- Incorrect Letters Pane -->
             <div id="incorrectPane">
                 <h3><i class="material-icons">error</i> Incorrect Letters</h3>
                 <div id="incorrectLetters"></div>
             </div>
-
-            <!-- Typing Area -->
             <div id="typingArea">
                 <div id="textToType">
                     <div class="arrow-container">
@@ -35,16 +29,12 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Restart Button (Always Displayed) -->
                 <button id="restartButton"><i class="material-icons">refresh</i> Restart</button>
-
                 <div id="feedback" class="feedback">
                     <p><i class="material-icons">timer</i> Time Elapsed: <span id="timeElapsed">0</span> seconds</p>
                     <p><i class="material-icons">speed</i> Characters per minute: <span id="cpm">0</span></p>
                     <p><i class="material-icons">check_circle</i> Accuracy: <span id="accuracy">0</span>%</p>
                 </div>
-
                 <div id="finalResults" class="hidden">
                     <h2><i class="material-icons">assessment</i> Final Results</h2>
                     <p><i class="material-icons">timer</i> Time: <span id="finalTimeElapsed">0</span> seconds</p>
@@ -53,13 +43,8 @@
                 </div>
             </div>
         </div>
-
-        <!-- Divider -->
         <div id="divider"></div>
-
-        <!-- Right Half: Rules -->
         <div id="rightPortion">
-            <!-- Rules and Finger Conventions -->
             <section id="rules">
                 <h2><i class="material-icons">rule</i> Rules</h2>
                 <ul>
@@ -87,8 +72,6 @@
             </section>
         </div>
     </div>
-
-    <!-- Include the external JavaScript files -->
     <script src="config.js"></script>
     <script src="helpers.js"></script>
     <script src="events.js"></script>

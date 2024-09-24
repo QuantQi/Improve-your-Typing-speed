@@ -78,18 +78,15 @@ function finishTest() {
 }
 
 function displayNextCharacter() {
-    // Get a random character
     currentCharIndex = Math.floor(Math.random() * characters.length);
     const currentChar = characters[currentCharIndex];
     textToTypeElement.innerHTML = currentChar === "Space" ? "[Space]" : currentChar;
 
-    // Show hand arrows and finger hints
     const leftHand = isLeftHand(currentChar);
     const fingerNumber = getFingerNumber(currentChar);
 
     fingerNumberElement.innerText = fingerNumber;
 
-    // Reset all arrows
     leftArrow.innerText = "";
     rightArrow.innerText = "";
     upArrow.innerText = "";
@@ -101,11 +98,8 @@ function displayNextCharacter() {
         rightArrow.innerText = "arrow_right";
     }
 
-    // Show position arrows (up or down)
     if (topRowKeys.includes(currentChar)) {
         upArrow.innerText = "arrow_upward";
-    } else if (homeRowKeys.includes(currentChar)) {
-        // No up/down arrow for home row
     } else if (bottomRowKeys.includes(currentChar)) {
         downArrow.innerText = "arrow_downward";
     }

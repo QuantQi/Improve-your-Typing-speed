@@ -28,5 +28,5 @@ function flashRed(element) {
 }
 
 function updateIncorrectLettersPane() {
-    incorrectLettersElement.innerText = incorrectChars.join(' ');
+    incorrectLettersElement.innerText = incorrectChars.map(item => item.join(' - ')).join(', ');
 }
