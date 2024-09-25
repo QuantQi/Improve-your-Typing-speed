@@ -31,3 +31,4 @@ function updateIncorrectLettersPane() {
     incorrectLettersElement.innerText = incorrectChars.map(item => `${item[1]} ➔ ${item[0]}`).join(', ');
 }
 
+
