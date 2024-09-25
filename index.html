@@ -26,34 +26,32 @@
                     </div>
                 </div>
                    
-                    <!-- Radio buttons for key row selection -->
-                    <div id="keySelection">
-                        <h3>Select Key Rows:</h3>
-                        <label><input type="radio" name="keyRow" value="top" > Top Row</label>
-                        <label><input type="radio" name="keyRow" value="home"> Home Row</label>
-                        <label><input type="radio" name="keyRow" value="bottom"> Bottom Row</label>
-                        <label><input type="radio" name="keyRow" value="all"checked> All Keys</label>
-                    </div>
+                <!-- Radio buttons for key row selection -->
+                <div id="keySelection">
+                    <h3>Select Key Rows:</h3>
+                    <label><input type="radio" name="keyRow" value="top"> Top Row</label>
+                    <label><input type="radio" name="keyRow" value="home"> Home Row</label>
+                    <label><input type="radio" name="keyRow" value="bottom"> Bottom Row</label>
+                    <label><input type="radio" name="keyRow" value="all" checked> All Keys</label>
+                </div>
+                
                 <div id="feedback" class="feedback">
                     <p><i class="material-icons">timer</i> Time Elapsed: <span id="timeElapsed">0</span> seconds</p>
                     <p><i class="material-icons">speed</i> Characters per minute: <span id="cpm">0</span></p>
                     <p><i class="material-icons">check_circle</i> Accuracy: <span id="accuracy">0</span>%</p>
                 </div>
+                
                 <div id="finalResults" class="hidden">
                     <h2><i class="material-icons">assessment</i> Final Results</h2>
                     <p><i class="material-icons">timer</i> Time: <span id="finalTimeElapsed">0</span> seconds</p>
                     <p><i class="material-icons">speed</i> Characters per minute: <span id="finalCpm">0</span></p>
                     <p><i class="material-icons">check_circle</i> Accuracy: <span id="finalAccuracy">0</span>%</p>
-                 
                 </div>
             </div>
-            <div id="incorrectPane">
-                <h3><i class="material-icons">error</i> Incorrect Letters</h3>
-                <div id="incorrectLetters"></div>
-            </div>
-            <button id="restartButton"><i class="material-icons">refresh</i> Restart</button>
         </div>
+        
         <div id="divider"></div>
+        
         <div id="rightPortion">
             <section id="rules">
                 <h2><i class="material-icons">rule</i> Rules</h2>
@@ -82,7 +80,14 @@
             </section>
         </div>
     </div>
-
+    
+    <div id="incorrectPane">
+        <h3><i class="material-icons">error</i> Incorrect Letters</h3>
+        <div id="incorrectLetters"></div>
+    </div>
+    
+    <button id="restartButton"><i class="material-icons">refresh</i> Restart</button>
+    
     <script src="config.js"></script>
     <script src="helpers.js"></script>
     <script src="events.js"></script>

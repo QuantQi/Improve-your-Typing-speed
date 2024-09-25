@@ -31,6 +31,14 @@ window.onload = startTest;
 document.addEventListener('keydown', handleKeyPress);
 restartButton.addEventListener('click', handleRestart);
 
+// Select all radio buttons
+const radioButtons = document.querySelectorAll('input[name="keyRow"]');
+
+// Add event listener to each radio button to restart test on change
+radioButtons.forEach(radio => {
+    radio.addEventListener('change', handleRestart);
+});
+
 function startTest() {
     finalResults.classList.add('hidden');
     feedback.classList.remove('hidden');
@@ -124,41 +132,29 @@ function displayNextCharacter() {
 }
 
 function handleKeyPress(event) {
-    // Ignore if 'Shift' key is pressed
-    if (event.key === 'Shift') return;
+    // Ignore Shift key
+    if (event.key === "Shift") return;
+    const currentChar = getCharacterSet()[currentCharIndex];
+    totalCharsTyped++;
 
-    if (finalResults.classList.contains('hidden')) {
-        const typedChar = event.key;
-        totalCharsTyped++;
-
-        const expectedChar = characters[currentCharIndex];
-
-        if (expectedChar === "Space" && typedChar === ' ') {
-            correctCharsTyped++;
-            displayNextCharacter();
-        } else if (typedChar === expectedChar) {
-            correctCharsTyped++;
-            displayNextCharacter();
-        } else {
-            // Incorrect character
-            flashRed(characterBox);
-            // Add this line
-            incorrectChars.push([expectedChar, typedChar]); // Push expected and typed chars
-            updateIncorrectLettersPane();
-        }
-
-        updateFeedback();
+    if (event.key === currentChar) {
+        correctCharsTyped++;
+    } else {
+        incorrectChars.push([currentChar, event.key]);
+        flashRed(characterBox);
     }
+    
+    updateFeedback();
+    updateIncorrectLettersPane();
+    displayNextCharacter();
 }
-
-
 
 function handleRestart() {
     startTest();
 }
 
 function updateIncorrectLettersPane() {
-    incorrectLettersElement.innerHTML = incorrectChars.join('\t');
+    incorrectLettersElement.innerText = incorrectChars.map(item => item[1] + ' -> ' + item[0]).join(', ');
 }
 
 // Add your other helper functions like isLeftHand, getFingerNumber, etc.
