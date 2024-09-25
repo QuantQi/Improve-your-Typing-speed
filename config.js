@@ -17,9 +17,9 @@ const leftHandKeys = "1!2@3#4$5%qwertasdfgzxcvbQWERTASDFGZXCVB".split('');
 const rightHandKeys = "6^7&8*9(0)-_=+yuiop[]\\hjkl;'nm,./YUIOP{}|HJKL:\"NM<>?".split('');
 
 // Define rows for up and down
-const topRowKeys = "1234567890qwertyuiopQWERTYUIOP".split('');
-const homeRowKeys = "asdfghjkl;ASDFGHJKL:".split('');
-const bottomRowKeys = "zxcvbnm,./ZXCVBNM<>?".split('');
+const topRowKeys = "1234567890qwertyuiopQWERTYUIOP!@#$%^&*()_+=-[]{}".split('');
+const homeRowKeys = "asdfghjkl;ASDFGHJKL:'\"\\|".split('');
+const bottomRowKeys = "zxcvbnm,./ZXCVBNM<>?`~".split('');
 
 // Define finger assignments (1 = thumb, 5 = pinky)
 const fingerAssignments = {
