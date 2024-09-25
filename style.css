@@ -139,7 +139,7 @@ h1 {
     margin-left: 20px;
     text-align: right;
     padding-left: 20px;
-    border-left: #ccc 1px ;
+    border-left: #ccc 1px solid;
 }
 
 #rules {

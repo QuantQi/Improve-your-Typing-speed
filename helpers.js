@@ -28,7 +28,10 @@ function flashRed(element) {
 }
 
 function updateIncorrectLettersPane() {
-    incorrectLettersElement.innerText = incorrectChars.map(item => item[1] + ' ➔ ' + item[0]).join(', ');
+    incorrectLettersElement.innerText = incorrectChars.map(function(item) {
+        return item[1] + ' -> ' + item[0];
+    }).join(', ');
+    
 
     console.log(`Updated Incorrect Letters: ${incorrectLettersElement.innerText}`);
 }
