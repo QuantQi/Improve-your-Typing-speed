@@ -158,7 +158,7 @@ function handleRestart() {
 }
 
 function updateIncorrectLettersPane() {
-    incorrectLettersElement.innerHTML = incorrectChars.join('   ');
+    incorrectLettersElement.innerHTML = incorrectChars.join('\t');
 }
 
 // Add your other helper functions like isLeftHand, getFingerNumber, etc.
