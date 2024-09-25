@@ -124,6 +124,8 @@ function displayNextCharacter() {
 }
 
 function handleKeyPress(event) {
+        // Ignore Shift key
+        if (event.key === "Shift") return;
     const currentChar = getCharacterSet()[currentCharIndex];
     if (event.key === currentChar) {
         correctCharsTyped++;
