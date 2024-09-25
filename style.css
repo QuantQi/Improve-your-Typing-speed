@@ -111,6 +111,11 @@ h1 {
 .hidden {
     display: none;
 }
+#keySelection {
+    justify-content: center;
+    margin-top: 20px;
+    border: #ccc 1px solid;
+}
 
 #finalResults {
     margin-top: 20px;
