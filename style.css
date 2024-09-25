@@ -138,7 +138,8 @@ h1 {
     width: 50%;
     margin-left: 20px;
     text-align: right;
-    border-left: #ccc 2px solid;
+    padding-left: 20px;
+    border-left: #ccc 1px ;
 }
 
 #rules {
