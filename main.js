@@ -124,20 +124,26 @@ function displayNextCharacter() {
 }
 
 function handleKeyPress(event) {
-        // Ignore Shift key
-        if (event.key === "Shift") return;
+    // Ignore Shift key
+    if (event.key === "Shift") return;
+
     const currentChar = getCharacterSet()[currentCharIndex];
+    totalCharsTyped++;
+
     if (event.key === currentChar) {
         correctCharsTyped++;
+        displayNextCharacter();
     } else {
-        incorrectChars.push(currentChar);
-        characterBox.classList.add('flash-red');
-        setTimeout(() => characterBox.classList.remove('flash-red'), 300);
+        // Incorrect character
+        flashRed(characterBox);
+        incorrectChars.push([currentChar, event.key]); // Store expected and typed
+        console.log(`Incorrect: Typed "${event.key}", Expected "${currentChar}"`);
+        updateIncorrectLettersPane();
     }
-    totalCharsTyped++;
+
     updateFeedback();
-    displayNextCharacter();
 }
+
 
 function handleRestart() {
     startTest();
