@@ -33,8 +33,8 @@ const fingerAssignments = {
     'right': {
         1: "Space",
         2: "6^yhn7&ujmYHN7&UJM",
-        3: "8*ik,IK<",
-        4: "9(ol.OL>",
+        3: "8*ik,IK<9",
+        4: "(ol.OL>",
         5: "0)p;/-_=+[{]}\\|P:?'\""
     }
 };
