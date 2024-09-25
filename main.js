@@ -124,25 +124,33 @@ function displayNextCharacter() {
 }
 
 function handleKeyPress(event) {
-    // Ignore Shift key
-    if (event.key === "Shift") return;
+    // Ignore if 'Shift' key is pressed
+    if (event.key === 'Shift') return;
 
-    const currentChar = getCharacterSet()[currentCharIndex];
-    totalCharsTyped++;
+    if (finalResults.classList.contains('hidden')) {
+        const typedChar = event.key;
+        totalCharsTyped++;
 
-    if (event.key === currentChar) {
-        correctCharsTyped++;
-        displayNextCharacter();
-    } else {
-        // Incorrect character
-        flashRed(characterBox);
-        incorrectChars.push([currentChar, event.key]); // Store expected and typed
-        console.log(`Incorrect: Typed "${event.key}", Expected "${currentChar}"`);
-        updateIncorrectLettersPane();
+        const expectedChar = characters[currentCharIndex];
+
+        if (expectedChar === "Space" && typedChar === ' ') {
+            correctCharsTyped++;
+            displayNextCharacter();
+        } else if (typedChar === expectedChar) {
+            correctCharsTyped++;
+            displayNextCharacter();
+        } else {
+            // Incorrect character
+            flashRed(characterBox);
+            // Add this line
+            incorrectChars.push([expectedChar, typedChar]); // Push expected and typed chars
+            updateIncorrectLettersPane();
+        }
+
+        updateFeedback();
     }
-
-    updateFeedback();
 }
+
 
 
 function handleRestart() {
@@ -150,7 +158,7 @@ function handleRestart() {
 }
 
 function updateIncorrectLettersPane() {
-    incorrectLettersElement.innerHTML = incorrectChars.join(', ');
+    incorrectLettersElement.innerHTML = incorrectChars.join('   ');
 }
 
 // Add your other helper functions like isLeftHand, getFingerNumber, etc.
