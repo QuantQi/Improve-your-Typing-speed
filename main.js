@@ -77,9 +77,27 @@ function finishTest() {
     finalResults.classList.remove('hidden');
 }
 
+function getCharacterSet() {
+    const selectedRow = document.querySelector('input[name="keyRow"]:checked').value;
+
+    switch (selectedRow) {
+        case 'top':
+            return topRowKeys;
+        case 'home':
+            return homeRowKeys;
+        case 'bottom':
+            return bottomRowKeys;
+        case 'all':
+            return characters;
+        default:
+            return characters; // fallback
+    }
+}
+
 function displayNextCharacter() {
-    currentCharIndex = Math.floor(Math.random() * characters.length);
-    const currentChar = characters[currentCharIndex];
+    const charactersToUse = getCharacterSet();
+    currentCharIndex = Math.floor(Math.random() * charactersToUse.length);
+    const currentChar = charactersToUse[currentCharIndex];
     textToTypeElement.innerHTML = currentChar === "Space" ? "[Space]" : currentChar;
 
     const leftHand = isLeftHand(currentChar);
@@ -104,3 +122,27 @@ function displayNextCharacter() {
         downArrow.innerText = "arrow_downward";
     }
 }
+
+function handleKeyPress(event) {
+    const currentChar = getCharacterSet()[currentCharIndex];
+    if (event.key === currentChar) {
+        correctCharsTyped++;
+    } else {
+        incorrectChars.push(currentChar);
+        characterBox.classList.add('flash-red');
+        setTimeout(() => characterBox.classList.remove('flash-red'), 300);
+    }
+    totalCharsTyped++;
+    updateFeedback();
+    displayNextCharacter();
+}
+
+function handleRestart() {
+    startTest();
+}
+
+function updateIncorrectLettersPane() {
+    incorrectLettersElement.innerHTML = incorrectChars.join(', ');
+}
+
+// Add your other helper functions like isLeftHand, getFingerNumber, etc.
