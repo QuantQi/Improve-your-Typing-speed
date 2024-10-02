@@ -6,6 +6,7 @@ let startTime, interval;
 let correctCharsTyped = 0;
 let totalCharsTyped = 0;
 let incorrectChars = [];
+let testStarted = false;
 
 // DOM Elements
 const textToTypeElement = document.getElementById('character');
@@ -26,7 +27,7 @@ const finalAccuracy = document.getElementById('finalAccuracy');
 const restartButton = document.getElementById('restartButton');
 
 // Initialization
-window.onload = startTest;
+//window.onload = startTest;
 document.addEventListener('keydown', handleKeyPress);
 restartButton.addEventListener('click', handleRestart);
 
@@ -41,7 +42,6 @@ radioButtons.forEach(radio => {
 function startTest() {
     finalResults.classList.add('hidden');
     feedback.classList.remove('hidden');
-    incorrectChars = [];
     characterBox.classList.remove('flash-red');
     startTime = new Date();
     if (interval) clearInterval(interval);
@@ -130,6 +130,12 @@ function displayNextCharacter() {
 }
 
 function handleKeyPress(event) {
+
+    //Start the test if not already started 
+    if (!testStarted) {
+        testStarted = true;
+        startTest();
+    }
     // Ignore Shift key
     if (event.key === "Shift") return;
     const currentChar = getCharacterSet()[currentCharIndex];
@@ -147,7 +153,8 @@ function handleKeyPress(event) {
 }
 
 function handleRestart() {
-    startTest();
+   // startTest();
+   testStarted = false;
 }
 
 
