@@ -27,5 +27,6 @@ function handleKeyPress(event) {
 }
 
 function handleRestart() {
+    finishTest();
     startTest();
 }
