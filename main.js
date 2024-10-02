@@ -154,7 +154,9 @@ function handleKeyPress(event) {
 
 function handleRestart() {
    // startTest();
-   testStarted = false;
+   testStarted = false; 
+   clearInterval(interval);
+   finishTest();
    displayNextCharacter();
 }
 
