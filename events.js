@@ -20,7 +20,7 @@ function handleKeyPress(event) {
             // Incorrect character
             flashRed(characterBox);
             incorrectChars.push([expectedChar, typedChar]);
-            updateIncorrectLettersPane();
+            
         }
 
         updateFeedback();

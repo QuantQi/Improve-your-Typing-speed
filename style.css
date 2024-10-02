@@ -36,12 +36,6 @@ h1 {
     text-align: center;
 }
 
-#incorrectLetters {
-    font-size: 24px;
-    color: red;
-    word-wrap: break-word;
-    min-height: 50px;
-}
 
 #typingArea {
     text-align: center;

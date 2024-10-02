@@ -23,7 +23,6 @@ const finalResults = document.getElementById('finalResults');
 const finalTimeElapsed = document.getElementById('finalTimeElapsed');
 const finalCpm = document.getElementById('finalCpm');
 const finalAccuracy = document.getElementById('finalAccuracy');
-const incorrectLettersElement = document.getElementById('incorrectLetters');
 const restartButton = document.getElementById('restartButton');
 
 // Initialization
@@ -43,7 +42,6 @@ function startTest() {
     finalResults.classList.add('hidden');
     feedback.classList.remove('hidden');
     incorrectChars = [];
-    updateIncorrectLettersPane();
     characterBox.classList.remove('flash-red');
     startTime = new Date();
     if (interval) clearInterval(interval);
@@ -145,7 +143,6 @@ function handleKeyPress(event) {
     }
     
     updateFeedback();
-    updateIncorrectLettersPane();
     displayNextCharacter();
 }
 
@@ -153,8 +150,5 @@ function handleRestart() {
     startTest();
 }
 
-function updateIncorrectLettersPane() {
-    incorrectLettersElement.innerText = incorrectChars.map(item => item[1] + ' -> ' + item[0]).join(', ');
-}
 
 // Add your other helper functions like isLeftHand, getFingerNumber, etc.
