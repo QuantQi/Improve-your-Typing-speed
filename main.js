@@ -48,6 +48,7 @@ function startTest() {
     function startTimerOnce(event) {
         if (event.key !== "Shift") {
             startTime = new Date();
+            if (interval) clearInterval(interval);
             interval = setInterval(updateTime, 100);
             document.removeEventListener('keydown', startTimerOnce);
         }
@@ -56,9 +57,9 @@ function startTest() {
     finalResults.classList.add('hidden');
     feedback.classList.remove('hidden');
     characterBox.classList.remove('flash-red');
-    startTime = new Date();
-    if (interval) clearInterval(interval);
-    interval = setInterval(updateTime, 100);
+   // startTime = new Date();
+   // if (interval) clearInterval(interval);
+   // interval = setInterval(updateTime, 100);
     correctCharsTyped = 0;
     totalCharsTyped = 0;
    
@@ -76,24 +77,57 @@ function updateTime() {
 }
 
 function updateFeedback() {
+    // Calculate the time elapsed since 'startTime' in seconds
     const timeElapsed = Math.floor((new Date() - startTime) / 1000);
+    
+    // Calculate the characters per minute (CPM)
+    // 'correctCharsTyped' is the number of correct characters typed by the user
+    // 'timeElapsed' is the time elapsed in seconds, so we divide by 60 to convert to minutes
     const cpm = Math.floor((correctCharsTyped / timeElapsed) * 60);
+    
+    // Calculate the typing accuracy as a percentage
+    // 'correctCharsTyped' is the number of correct characters typed by the user
+    // 'totalCharsTyped' is the total number of characters typed by the user
     const accuracy = (correctCharsTyped / totalCharsTyped) * 100;
-
+    
+    // Update the CPM display element
+    // If 'cpm' is NaN (Not-a-Number) or not finite (e.g., due to division by zero), set it to 0
     cpmElement.innerText = isNaN(cpm) || !isFinite(cpm) ? 0 : cpm;
+    
+    // Update the accuracy display element
+    // If 'accuracy' is NaN, set it to 0, otherwise format it to 2 decimal places
     accuracyElement.innerText = isNaN(accuracy) ? 0 : accuracy.toFixed(2);
 }
 
 function finishTest() {
+    // Calculate the total time elapsed in seconds since the start of the test
     const timeElapsed = (new Date() - startTime) / 1000;
+
+    // Calculate the characters per minute (CPM)
+    // 'correctCharsTyped' is the number of correct characters typed by the user
+    // 'timeElapsed' is the time elapsed in seconds, so we divide by 60 to convert to minutes
     const cpm = Math.floor((correctCharsTyped / timeElapsed) * 60);
+
+    // Calculate the typing accuracy as a percentage
+    // 'correctCharsTyped' is the number of correct characters typed by the user
+    // 'totalCharsTyped' is the total number of characters typed by the user
     const accuracy = (correctCharsTyped / totalCharsTyped) * 100;
 
+    // Update the final time elapsed display element
+    // 'toFixed(2)' formats the number to 2 decimal places
     finalTimeElapsed.innerText = timeElapsed.toFixed(2);
+
+    // Update the final CPM display element
     finalCpm.innerText = cpm;
+
+    // Update the final accuracy display element
+    // 'toFixed(2)' formats the number to 2 decimal places
     finalAccuracy.innerText = accuracy.toFixed(2);
 
+    // Hide the feedback section
     feedback.classList.add('hidden');
+
+    // Show the final results section
     finalResults.classList.remove('hidden');
 }
 
@@ -141,29 +175,6 @@ function displayNextCharacter() {
     } else if (bottomRowKeys.includes(currentChar)) {
         downArrow.innerText = "arrow_downward";
     }
-}
-
-function handleKeyPress(event) {
-
-
-    // Ignore Shift key
-    if (event.key === "Shift") return;
-    const currentChar = getCharacterSet()[currentCharIndex];
-    totalCharsTyped++;
-
-    if (event.key === currentChar) {
-        correctCharsTyped++;
-    } else {
-        incorrectChars.push([currentChar, event.key]);
-        flashRed(characterBox);
-    }
-    
-    updateFeedback();
-    displayNextCharacter();
-}
-
-function handleRestart() {
-    startTest();
 }
 
 
