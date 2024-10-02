@@ -15,7 +15,7 @@ function handleKeyPress(event) {
             displayNextCharacter();
         } else if (typedChar === expectedChar) {
             correctCharsTyped++;
-           // displayNextCharacter();
+            displayNextCharacter();
         } else {
             // Incorrect character
             flashRed(characterBox);
