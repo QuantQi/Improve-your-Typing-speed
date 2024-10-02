@@ -27,6 +27,7 @@ function handleKeyPress(event) {
 }
 
 function handleRestart() {
+    clearInterval(interval);
     finishTest();
     startTest();
 }
