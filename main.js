@@ -27,7 +27,7 @@ const finalAccuracy = document.getElementById('finalAccuracy');
 const restartButton = document.getElementById('restartButton');
 
 // Initialization
-//window.onload = startTest;
+window.onload = displayNextCharacter;
 document.addEventListener('keydown', handleKeyPress);
 restartButton.addEventListener('click', handleRestart);
 
@@ -155,6 +155,7 @@ function handleKeyPress(event) {
 function handleRestart() {
    // startTest();
    testStarted = false;
+   displayNextCharacter();
 }
 
 
