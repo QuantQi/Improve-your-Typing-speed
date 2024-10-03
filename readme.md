@@ -1,5 +1,4 @@
 # Typing Speed Test with Finger Position Hints
-
 This project is a **Typing Speed Test** designed to help users practice typing and improve their typing speed and accuracy. The test provides visual hints for which **hand** and **finger** to use, as well as the **row position** of the key on the keyboard (top row, home row, or bottom row).
 
 ### How to Run
@@ -14,17 +13,18 @@ This project is a **Typing Speed Test** designed to help users practice typing a
 
 - **Random Characters**: The test displays random characters, including numbers, special characters, and the "Space" key.
 - **Finger Hints**: Arrows indicate whether the character should be typed using the left (`←`) or right (`→`) hand, and a number below the arrow indicates which finger to use. Finger numbers are based on standard typing conventions:
-  - **1**: Thumb
-  - **2**: Index finger
-  - **3**: Middle finger
-  - **4**: Ring finger
-  - **5**: Pinky finger
+  - **1**: Index finger
+  - **2**: Middle finger
+  - **3**: Ring finger
+  - **4**: Pinky finger
 - **Position Arrows**: Additional arrows (`↑` and `↓`) indicate whether the key is located on the top row, home row (no arrow), or bottom row of the keyboard.
 - **Real-Time Feedback**: The test provides real-time feedback on your typing speed (**Characters per Minute**) and **accuracy**.
 - **Final Results**: After 5 minutes, the test will display your final speed and accuracy.
 - **Customizable Test Duration**: Users can now set the test duration to their preference.
 - **Pause and Resume**: The test can be paused and resumed at any time.
 - **Progress Tracking**: Track your progress over time with detailed statistics and history.
+- **Configurable Keys**: Users can configure the keys on the keyboard to match their preferences.
+- **Privacy**: No analytics are collected. All your data is saved in cookies, which can be easily deleted from the config section.
 
 ## Rules to Follow
 
