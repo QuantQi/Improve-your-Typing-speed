@@ -62,8 +62,11 @@ function createOptionsForm() {
 
     // Check if cookies exist and update keyRows_default accordingly
     const getCookie = (name) => {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
+        const value = ` ${document.cookie}`;
+        const parts = value.split(' ');
+
+       // console.log('value: '+ value);
+        ///console.log('parts: '+ parts);
         if (parts.length === 2) return parts.pop().split(';').shift();
     };
 

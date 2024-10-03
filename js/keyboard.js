@@ -13,7 +13,7 @@ function createKeyboard(charSet,isShiftPressed,highlightChar) {
             rowDiv.className = 'keyboard-row';
 
             if(row == 'homeRowKeys'){
-                rowDiv.style.marginLeft = '20px';
+                rowDiv.style.marginLeft = '25px';
             }else if(row == 'bottomRowKeys'){
                 rowDiv.style.marginLeft = '-55px';
             }else{
