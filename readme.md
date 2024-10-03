@@ -4,7 +4,7 @@ This project is a **Typing Speed Test** designed to help users practice typing a
 ### How to Run
 
 1. **Open the Test**:
-   - Open [Typing Test](https://quantqi.github.io/TestTyping/) in any modern web browser.
+   - Open [Typing Test](https://quantqi.github.io/Improve-your-Typing-speed/) in any modern web browser.
 
 2. **Start Typing**:
    - The test will begin automatically. Follow the hints and type the characters displayed.
