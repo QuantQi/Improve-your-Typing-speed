@@ -1,7 +1,7 @@
 // main.js
 
 // Global Variables
-let currentCharIndex = 0;
+//let currentCharIndex = 0;
 let startTime, interval;
 let correctCharsTyped = 0;
 let totalCharsTyped = 0;
@@ -28,6 +28,7 @@ const restartButton = document.getElementById('restartButton');
 // Initialization
 window.onload = startTest; // Start test when page loads
 document.addEventListener('keydown', handleKeyPress);
+
 restartButton.addEventListener('click', handleRestart);
 
 // Select all radio buttons
@@ -37,6 +38,8 @@ const radioButtons = document.querySelectorAll('input[name="keyRow"]');
 radioButtons.forEach(radio => {
     radio.addEventListener('change', handleRestart);
 });
+
+
 
 function startTest() {
 
@@ -131,32 +134,54 @@ function finishTest() {
     finalResults.classList.remove('hidden');
 }
 
-function getCharacterSet() {
-    const selectedRow = document.querySelector('input[name="keyRow"]:checked').value;
-
+function getCharacterSet(selectedRow = null) {
+   selectedRow = (selectedRow==null) ? document.querySelector('input[name="keyRow"]:checked').value :selectedRow;
+   
     switch (selectedRow) {
         case 'top':
-            return topRowKeys;
+            return {
+                numRowKeys: keyRows_default.numRowKeys,
+                topRowKeys: keyRows_default.topRowKeys
+            };
         case 'home':
-            return homeRowKeys;
+            return {
+                homeRowKeys: keyRows_default.homeRowKeys
+            };
         case 'bottom':
-            return bottomRowKeys;
-        case 'all':
-            return characters;
+            return {
+                bottomRowKeys: keyRows_default.bottomRowKeys
+            };
         default:
-            return characters; // fallback
+            return keyRows_default;
     }
 }
 
 function displayNextCharacter() {
     const charactersToUse = getCharacterSet();
-    currentCharIndex = Math.floor(Math.random() * charactersToUse.length);
-    const currentChar = charactersToUse[currentCharIndex];
-    textToTypeElement.innerHTML = currentChar === "Space" ? "[Space]" : currentChar;
+    //console.log(charactersToUse);
+    var keys = Object.keys(charactersToUse);
+    var randomIndex = Math.floor(Math.random() * keys.length);
+    const rowArr = charactersToUse[keys[randomIndex]];
 
-    const leftHand = isLeftHand(currentChar);
-    const fingerNumber = getFingerNumber(currentChar);
+    //select wShift or woShift key in the row
+    keys = Object.keys(rowArr);
+    randomIndex = Math.floor(Math.random() * keys.length);
+    const row = rowArr[keys[randomIndex]];
 
+ 
+
+    const currentCharIndex = Math.floor(Math.random() * row.length);
+    currentChar = row[currentCharIndex];
+    textToTypeElement.innerHTML = currentChar;
+
+    //creat keyboard with or without shift
+    createKeyboard(getCharacterSet("all"),keys[randomIndex] === "wShift",currentChar);
+
+    //if less than half the length of the row, left hand. Otherwise right hand
+    const leftHand = isLeftHand(row,currentCharIndex);
+
+    
+    const fingerNumber = getFingerNumber(row,currentCharIndex);
     fingerNumberElement.innerText = fingerNumber;
 
     leftArrow.innerText = "";
@@ -166,14 +191,22 @@ function displayNextCharacter() {
 
     if (leftHand) {
         leftArrow.innerText = "arrow_left";
-    } else if (leftHand === false) {
+    } else{
         rightArrow.innerText = "arrow_right";
     }
 
-    if (topRowKeys.includes(currentChar)) {
-        upArrow.innerText = "arrow_upward";
-    } else if (bottomRowKeys.includes(currentChar)) {
-        downArrow.innerText = "arrow_downward";
+    //console.log(topRowKeys.wShiht.includes(currentChar));
+    switch (true) {
+        case keyRows_default.topRowKeys.wShift.includes(currentChar):
+        case keyRows_default.topRowKeys.woShift.includes(currentChar):
+        case keyRows_default.numRowKeys.wShift.includes(currentChar):
+        case keyRows_default.numRowKeys.woShift.includes(currentChar):
+            upArrow.innerText = "arrow_upward";
+            break;
+        case keyRows_default.bottomRowKeys.wShift.includes(currentChar):
+        case keyRows_default.bottomRowKeys.woShift.includes(currentChar):
+            downArrow.innerText = "arrow_downward";
+            break;
     }
 }
 

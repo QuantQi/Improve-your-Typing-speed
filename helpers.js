@@ -2,22 +2,24 @@
 
 // Helper functions
 
-function isLeftHand(char) {
-    if (leftHandKeys.includes(char)) return true;
-    if (rightHandKeys.includes(char)) return false;
-    return null; // For keys that are not specifically assigned
-}
-
-function getFingerNumber(char) {
-    for (let hand in fingerAssignments) {
-        for (let finger in fingerAssignments[hand]) {
-            const keys = fingerAssignments[hand][finger];
-            if (keys.includes(char)) {
-                return finger;
-            }
+function getFingerNumber(row,currentCharIndex) {
+   
+    //for left hand
+    for(let index = 0; index < row.length; index++){
+       
+        let midPoint = Math.floor((row.length - 1 ) / 2);
+      //  console.log('midPoint: '+midPoint);
+        //for left hand
+        if(currentCharIndex <= midPoint){
+           return Math.min(4,midPoint - currentCharIndex);
+        }else{ // for right hand
+            return Math.min(4,currentCharIndex - midPoint);
         }
     }
-    return ""; // If not found
+}
+
+function isLeftHand(row,currentCharIndex) {
+    return currentCharIndex <= Math.floor(row.length / 2);
 }
 
 function flashRed(element) {

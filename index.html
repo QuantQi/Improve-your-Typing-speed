@@ -29,10 +29,10 @@
                 <!-- Radio buttons for key row selection -->
                 <div id="keySelection">
                     <h3>Select Key Rows:</h3>
-                    <label><input type="radio" name="keyRow" value="top"> Top Row</label>
-                    <label><input type="radio" name="keyRow" value="home"> Home Row</label>
-                    <label><input type="radio" name="keyRow" value="bottom"> Bottom Row</label>
-                    <label><input type="radio" name="keyRow" value="all" checked> All Keys</label>
+                    <label><input type="radio" name="keyRow" value="top" > Top Row</label>
+                    <label><input type="radio" name="keyRow" value="home" > Home Row</label>
+                    <label><input type="radio" name="keyRow" value="bottom" > Bottom Row</label>
+                    <label><input type="radio" name="keyRow" value="all" checked > All Keys</label>
                 </div>
                 
                 <div id="feedback" class="feedback">
@@ -68,11 +68,10 @@
                     </li>
                     <li><i class="material-icons">touch_app</i> Finger numbers indicate which finger to use:
                         <ul>
-                            <li><strong>1:</strong> Thumb</li>
-                            <li><strong>2:</strong> Index finger</li>
-                            <li><strong>3:</strong> Middle finger</li>
-                            <li><strong>4:</strong> Ring finger</li>
-                            <li><strong>5:</strong> Pinky finger</li>
+                            <li><strong>1:</strong> Index finger</li>
+                            <li><strong>2:</strong> Middle finger</li>
+                            <li><strong>3:</strong> Ring finger</li>
+                            <li><strong>4:</strong> Pinky finger</li>
                         </ul>
                     </li>
                     <li><i class="material-icons">hourglass_full</i> The test lasts for 5 minutes. Try to type as accurately and quickly as possible.</li>
@@ -85,7 +84,22 @@
     
     <button id="restartButton"><i class="material-icons">refresh</i> Restart</button>
     
+        <!-- Material icon to toggle keyboard and options -->
+        <button id="toggleOptionsButton">
+            <i class="material-icons">settings</i>
+        </button>
+        
+    <div id="keyboard">
+        <!-- Keyboard rows will be dynamically generated -->
+    </div>
+    
+        <!-- Options container (initially hidden) -->
+        <div id="optionsContainer" class="hidden">
+       
+        </div>
+
     <script src="config.js"></script>
+    <script src="keyboard.js"></script>
     <script src="helpers.js"></script>
     <script src="events.js"></script>
     <script src="main.js"></script>
