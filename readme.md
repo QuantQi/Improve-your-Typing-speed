@@ -2,19 +2,13 @@
 
 This project is a **Typing Speed Test** designed to help users practice typing and improve their typing speed and accuracy. The test provides visual hints for which **hand** and **finger** to use, as well as the **row position** of the key on the keyboard (top row, home row, or bottom row).
 
-
 ### How to Run
 
-
 1. **Open the Test**:
-   - Open [Typing Test](https://quantqi.github.io/TestTyping/)
-    in any modern web browser.
+   - Open [Typing Test](https://quantqi.github.io/TestTyping/) in any modern web browser.
 
 2. **Start Typing**:
    - The test will begin automatically. Follow the hints and type the characters displayed.
-
-
-
 
 ## Features
 
@@ -28,6 +22,9 @@ This project is a **Typing Speed Test** designed to help users practice typing a
 - **Position Arrows**: Additional arrows (`↑` and `↓`) indicate whether the key is located on the top row, home row (no arrow), or bottom row of the keyboard.
 - **Real-Time Feedback**: The test provides real-time feedback on your typing speed (**Characters per Minute**) and **accuracy**.
 - **Final Results**: After 5 minutes, the test will display your final speed and accuracy.
+- **Customizable Test Duration**: Users can now set the test duration to their preference.
+- **Pause and Resume**: The test can be paused and resumed at any time.
+- **Progress Tracking**: Track your progress over time with detailed statistics and history.
 
 ## Rules to Follow
 
@@ -55,6 +52,13 @@ This project is a **Typing Speed Test** designed to help users practice typing a
    - The test tracks the number of characters you type correctly, your typing speed in **Characters per Minute (CPM)**, and your **accuracy** as a percentage.
 
 5. **Finish the Test**:
-   - The test lasts for 5 minutes. After that time, the test will automatically end and display your final CPM, accuracy, and total time elapsed.
+   - The test lasts for 5 minutes by default. After that time, the test will automatically end and display your final CPM, accuracy, and total time elapsed.
+   - If you have set a custom duration, the test will end after the specified time.
 
+6. **Pause and Resume**:
+   - You can pause the test at any time by clicking the "Pause" button.
+   - To resume, click the "Resume" button.
+
+7. **Track Your Progress**:
+   - Detailed statistics and history of your typing tests are available to help you track your progress over time.
 
