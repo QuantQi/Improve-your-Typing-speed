@@ -3,7 +3,10 @@ body {
     padding: 20px;
     max-width: 1400px;
     margin: auto;
+    color: #4a4949;
 }
+
+
 
 h1 {
     margin-bottom: 20px;
@@ -11,31 +14,31 @@ h1 {
 }
 
 #mainContainer {
+    display: block;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+#bottomContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
 }
-
-#leftPortion {
-    width: 50%;
+#leftPortion, #rightPortion {
+    width: 100%; /* Make both portions take full width */
     display: flex;
     flex-direction: column;
+    margin-top: 20px; /* Add margin to create space between portions */
 }
 
-#incorrectPane {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-    height: 150px;
-    overflow-y: auto;
+#displayBox,#rules{
+    border: 1px solid #f3f1f1;
+    padding: 20px;
+    width: 100%;
+    overflow-y: display;
+    box-sizing: border-box;
 }
-
-#incorrectPane h3 {
-    margin-top: 0;
-    text-align: center;
-}
-
 
 #typingArea {
     text-align: center;
@@ -106,9 +109,10 @@ h1 {
     display: none;
 }
 #keySelection {
-    justify-content: center;
+    justify-content: left;
     padding: 20px;
-    border: #ded9d9 1px solid;
+    border: #f3f1f1 1px solid;
+    margin-bottom: 20px;
 }
 
 #finalResults {
@@ -128,13 +132,7 @@ h1 {
     margin: 0 20px;
 }
 
-#rightPortion {
-    width: 50%;
-    margin-left: 20px;
-    text-align: right;
-    padding-left: 20px;
-    border-left: #ccc 1px solid;
-}
+
 
 #rules {
     text-align: left;
@@ -173,26 +171,36 @@ h1 {
 #rules ul ul li i.material-icons {
     margin-right: 5px;
 }
-
-button#restartButton {
-    font-size: 16px;
-    padding: 10px 20px;
+/* Flex container for buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
     margin: 20px auto;
-    display: block;
-    cursor: pointer;
 }
 
-button#restartButton i.material-icons {
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+button i.material-icons {
     vertical-align: middle;
     margin-right: 5px;
 }
-/* Keyboard styling */
-#keyboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 60px;
+
+#toggleOptionsButton {
+    float: right;
+    padding: 0;
+    border: 0;
+    background-color: white;
+
 }
+/* Keyboard styling */
+
 
 .keyboard-row {
     display: flex;
@@ -225,13 +233,13 @@ button#restartButton i.material-icons {
     margin-left: -40px;
 }
 /* Options container styles */
-#optionsContainer {
+#keyBoardArea {
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #edebeb;
     padding: 20px;
     margin: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Ensure child elements are contained within the border */
 }
 
@@ -277,5 +285,5 @@ button#restartButton i.material-icons {
 }
 
 #optionsContainer button:hover {
-    background-color: #218838;
+    background-color: #155422;
 }

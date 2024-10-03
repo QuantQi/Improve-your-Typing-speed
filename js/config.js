@@ -38,14 +38,6 @@ function toggleConfigOptions() {
     keyboard.classList.toggle('hidden');
     optionsContainer.classList.toggle('hidden');
 
-    // Toggle the style of each element
-    if (keyboard.classList.contains('hidden')) {
-        keyboard.style.display = 'none';
-        optionsContainer.style.display = 'block';
-    } else {
-        keyboard.style.display = 'block';
-        optionsContainer.style.display = 'none';
-    }
 }
 
 // Toggle visibility of keyboard and options container
@@ -57,7 +49,6 @@ document.getElementById('toggleOptionsButton').addEventListener('click', () => {
 
 function createOptionsForm() {
     const optionsContainer = document.getElementById('optionsContainer'); // Get the options container
-
     const optionsTitle = document.createElement('h2');
     optionsTitle.textContent = 'Options';
     optionsContainer.appendChild(optionsTitle);
@@ -153,7 +144,7 @@ function createOptionsForm() {
 
     optionsContainer.appendChild(form);
 
-    document.body.appendChild(optionsContainer);
+    //document.body.appendChild(optionsContainer);
 }
 
 // Call the function to create and append the options form
