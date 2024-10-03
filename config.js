@@ -24,6 +24,7 @@ var keyRows_default = {
 };
 
 
+
 // Time limit for the test in seconds (5 minutes)
 const TEST_DURATION = 300;
 
@@ -67,6 +68,35 @@ function createOptionsForm() {
     const formTitle = document.createElement('h3');
     formTitle.textContent = 'Custom Key Rows:';
     form.appendChild(formTitle);
+
+    // Check if cookies exist and update keyRows_default accordingly
+    const getCookie = (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    };
+
+    const updateKeyRowsFromCookies = () => {
+        const numRowKeysWoShift = getCookie('numRowKeysWoShift');
+        const numRowKeysWShift = getCookie('numRowKeysWShift');
+        const topRowKeysWoShift = getCookie('topRowKeysWoShift');
+        const topRowKeysWShift = getCookie('topRowKeysWShift');
+        const homeRowKeysWoShift = getCookie('homeRowKeysWoShift');
+        const homeRowKeysWShift = getCookie('homeRowKeysWShift');
+        const bottomRowKeysWoShift = getCookie('bottomRowKeysWoShift');
+        const bottomRowKeysWShift = getCookie('bottomRowKeysWShift');
+
+        if (numRowKeysWoShift) keyRows_default.numRowKeys.woShift = numRowKeysWoShift.split('');
+        if (numRowKeysWShift) keyRows_default.numRowKeys.wShift = numRowKeysWShift.split('');
+        if (topRowKeysWoShift) keyRows_default.topRowKeys.woShift = topRowKeysWoShift.split('');
+        if (topRowKeysWShift) keyRows_default.topRowKeys.wShift = topRowKeysWShift.split('');
+        if (homeRowKeysWoShift) keyRows_default.homeRowKeys.woShift = homeRowKeysWoShift.split('');
+        if (homeRowKeysWShift) keyRows_default.homeRowKeys.wShift = homeRowKeysWShift.split('');
+        if (bottomRowKeysWoShift) keyRows_default.bottomRowKeys.woShift = bottomRowKeysWoShift.split('');
+        if (bottomRowKeysWShift) keyRows_default.bottomRowKeys.wShift = bottomRowKeysWShift.split('');
+    };
+
+    updateKeyRowsFromCookies();
 
     const keyRows = [
         { id: 'numRowKeysWoShift', label: 'Number Row (without Shift):', value: keyRows_default.numRowKeys.woShift.join('') },
@@ -162,6 +192,21 @@ document.getElementById('resetConfigButton').addEventListener('click', () => {
         woShift: document.getElementById('bottomRowKeysWoShift').value.split(''),
         wShift: document.getElementById('bottomRowKeysWShift').value.split('')
     };
+
+    //save keyRows_default to cookies
+    document.cookie = `numRowKeysWoShift=${keyRows_default.numRowKeys.woShift.join('')}`;
+    document.cookie = `numRowKeysWShift=${keyRows_default.numRowKeys.wShift.join('')}`;
+
+    document.cookie = `topRowKeysWoShift=${keyRows_default.topRowKeys.woShift.join('')}`;
+    document.cookie = `topRowKeysWShift=${keyRows_default.topRowKeys.wShift.join('')}`;
+    document.cookie = `homeRowKeysWoShift=${keyRows_default.homeRowKeys.woShift.join('')}`;
+    document.cookie = `homeRowKeysWShift=${keyRows_default.homeRowKeys.wShift.join('')}`;
+    document.cookie = `bottomRowKeysWoShift=${keyRows_default.bottomRowKeys.woShift.join('')}`;
+    document.cookie = `bottomRowKeysWShift=${keyRows_default.bottomRowKeys.wShift.join('')}`;
+
+
+
+
 
     //toggle options form
     createKeyboard(getCharacterSet("all"),false,null);
