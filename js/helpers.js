@@ -11,9 +11,9 @@ function getFingerNumber(row,currentCharIndex) {
       //  console.log('midPoint: '+midPoint);
         //for left hand
         if(currentCharIndex <= midPoint){
-           return Math.min(4,midPoint - currentCharIndex);
+           return Math.min(4,Math.min(midPoint - currentCharIndex,1));
         }else{ // for right hand
-            return Math.min(4,currentCharIndex - midPoint);
+            return Math.min(4,Math.min(currentCharIndex - midPoint,1));
         }
     }
 }
